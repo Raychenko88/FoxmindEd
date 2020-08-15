@@ -4,6 +4,7 @@ import org.example.model.Room;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 public interface RoomService {
 
@@ -13,11 +14,13 @@ public interface RoomService {
 
     Room findById(Integer id) throws Exception;
 
-    List<Room> findAllByStartDateAndEndDateAndStatus(LocalDate startDate, LocalDate endDate, String status);
+    List<Room> findAllByStartDateAndEndDateAndOpenStatus(LocalDate startDate, LocalDate endDate, String status);
 
     List<Room> findAllByCategory(String category);
 
     List<Room> findAllByStatus(String status);
+
+    Integer costIncludingAdditionalServices(Room room, Set<String> additionalOptions);
 
     void delete(Room room);
 }

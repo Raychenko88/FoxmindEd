@@ -2,12 +2,14 @@ package org.example.service.impl;
 
 import org.example.dao.RoomDAO;
 import org.example.model.Room;
+import org.example.model.RoomStatus;
 import org.example.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class RoomServiceImpl implements RoomService {
@@ -37,8 +39,8 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public List<Room> findAllByStartDateAndEndDateAndStatus(LocalDate startDate, LocalDate endDate, String status) {
-        return roomDAO.findAllByStartDateAndEndDateAndStatus(startDate, endDate, status);
+    public List<Room> findAllByStartDateAndEndDateAndOpenStatus(LocalDate startDate, LocalDate endDate, String status) {
+        return roomDAO.findAllByStartDateAndEndDateAndStatus(startDate, endDate, RoomStatus.OPEN.getStatus());
     }
 
     @Override
@@ -52,7 +54,17 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
+    public Integer costIncludingAdditionalServices(Room room, Set<String> additionalOptions) {
+        for (String opnion : additionalOptions) {
+
+        }
+        return null;
+    }
+
+    @Override
     public void delete(Room room) {
         roomDAO.delete(room);
     }
+
+
 }
