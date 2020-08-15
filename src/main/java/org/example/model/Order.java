@@ -16,6 +16,6 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private User user;
-    private Room room;
+    private Integer userid;
+    private Integer roomid;
 }
