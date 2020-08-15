@@ -57,6 +57,7 @@ public class RoomServiceImpl implements RoomService {
     public Integer costIncludingAdditionalServices(Room room, Set<String> additionalOptions) {
         for (String opnion : additionalOptions) {
 
+            
         }
         return null;
     }
