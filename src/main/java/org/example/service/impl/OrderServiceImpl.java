@@ -30,9 +30,7 @@ public class OrderServiceImpl implements OrderService {
         }
         room = roomService.findById(order.getRoomid());
         room.setStatus(RoomStatus.CLOSE.getStatus());
-        room.setStartDate(roomService.findById(order.getRoomid()).getStartDate());
-        room.setEndDate(roomService.findById(order.getRoomid()).getEndDate());
-        roomService.update(roomService.findById(order.getRoomid()));
+        roomService.update(room);
         return orderDAO.save(order);
     }
 

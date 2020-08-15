@@ -2,11 +2,14 @@ package org.example.service.impl;
 
 import org.example.dao.RoomDAO;
 import org.example.model.Room;
+import org.example.model.RoomAdditionalOptions;
+import org.example.model.RoomOptionsPrice;
 import org.example.model.RoomStatus;
 import org.example.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
@@ -54,12 +57,16 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public Integer costIncludingAdditionalServices(Room room, Set<String> additionalOptions) {
+    public BigDecimal costIncludingAdditionalServices(Room room, Set<String> additionalOptions) {
         for (String opnion : additionalOptions) {
+            if (opnion.equals(RoomAdditionalOptions.BREAKFAST.getName())){
+                room.setPrice(room.getPrice().add(RoomOptionsPrice.BREAKFAST.getPrice()));
+            }else if (opnion.equals(RoomAdditionalOptions.BREAKFAST.getName())){
+                room.setPrice(room.getPrice().add(RoomOptionsPrice.CLEANING.getPrice()));
+            }
 
-            
         }
-        return null;
+        return room.getPrice();
     }
 
     @Override

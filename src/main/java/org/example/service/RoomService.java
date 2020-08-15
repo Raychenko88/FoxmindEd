@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.model.Room;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
@@ -20,7 +21,7 @@ public interface RoomService {
 
     List<Room> findAllByStatus(String status);
 
-    Integer costIncludingAdditionalServices(Room room, Set<String> additionalOptions);
+    BigDecimal costIncludingAdditionalServices(Room room, Set<String> additionalOptions);
 
     void delete(Room room);
 }
