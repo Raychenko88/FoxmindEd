@@ -1,12 +1,9 @@
 package org.example.model;
 
-
 import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.Set;
 
 @Setter
 @Getter
@@ -14,13 +11,15 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "rooms")
-public class Room {
+@Table(name = "options")
+public class RoomOption {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer number;
-    private String category;
+    private String title;
     private BigDecimal price;
+//    private Integer userId;
+    private Integer orderId;
+
 }

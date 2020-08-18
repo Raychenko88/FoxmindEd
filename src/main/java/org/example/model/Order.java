@@ -3,6 +3,7 @@ package org.example.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -16,6 +17,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer userid;
-    private Integer roomid;
+    private Integer userId;
+    private Integer roomId;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private String statusRoom;
 }

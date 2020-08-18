@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.model.Order;
 import org.example.model.Room;
 
 import java.math.BigDecimal;
@@ -21,7 +22,9 @@ public interface RoomService {
 
     List<Room> findAllByStatus(String status);
 
-    BigDecimal costIncludingAdditionalServices(Room room, Set<String> additionalOptions);
+    BigDecimal costServices(Order order);
+
+    BigDecimal costIncludingAdditionalServices(Order order) throws Exception;
 
     void delete(Room room);
 }

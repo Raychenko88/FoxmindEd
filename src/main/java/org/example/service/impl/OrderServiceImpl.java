@@ -20,17 +20,17 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     RoomService roomService;
 
-    @Autowired
-    Room room;
+
 
     @Override
     public Order save(Order order) throws Exception {
         if (order.getId() != null) {
             throw new Exception("order with this id already exists");
         }
-        room = roomService.findById(order.getRoomid());
-        room.setStatus(RoomStatus.CLOSE.getStatus());
+        Room room = roomService.findById(order.getRoomId());
+        room.setPrice(roomService.costIncludingAdditionalServices(order));
         roomService.update(room);
+        order.setStatusRoom(RoomStatus.CLOSE.getStatus());
         return orderDAO.save(order);
     }
 
