@@ -11,5 +11,4 @@ import java.util.List;
 public interface RoomDAO extends JpaRepository<Room, Integer> {
 
     List<Room> findAllByCategory(String category);
-
 }

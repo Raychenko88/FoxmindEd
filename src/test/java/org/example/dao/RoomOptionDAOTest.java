@@ -31,4 +31,6 @@ class RoomOptionDAOTest {
         assertFalse(list.isEmpty());
         assertEquals(2, list.size());
     }
+
+
 }
