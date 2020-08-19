@@ -15,11 +15,10 @@ import java.math.BigDecimal;
 public class RoomOption {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String title;
     private BigDecimal price;
-//    private Integer userId;
     private Integer orderId;
 
 }

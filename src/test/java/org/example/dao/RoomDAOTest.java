@@ -18,9 +18,9 @@ class RoomDAOTest {
 
     @Test
     void findAllByCategory() {
-        Room room1 = Room.builder().id(1).number(1).category("SINGLE").price(new BigDecimal(10)).build();
-        Room room2 = Room.builder().id(2).number(2).category("SINGLE").price(new BigDecimal(20)).build();
-        Room room3 = Room.builder().id(3).number(3).category("DOUBLE").price(new BigDecimal(30)).build();
+        Room room1 = Room.builder().number(1).category("SINGLE").price(new BigDecimal(10)).build();
+        Room room2 = Room.builder().number(2).category("SINGLE").price(new BigDecimal(20)).build();
+        Room room3 = Room.builder().number(3).category("DOUBLE").price(new BigDecimal(30)).build();
         roomDAO.save(room1);
         roomDAO.save(room2);
         roomDAO.save(room3);
