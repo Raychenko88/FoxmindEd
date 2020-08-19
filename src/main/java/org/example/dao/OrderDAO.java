@@ -22,5 +22,4 @@ public interface OrderDAO extends JpaRepository<Order, Integer> {
             "(:endDate NOT BETWEEN o.start_date AND o.end_date)",
             nativeQuery = true)
     List<Room> findAllAvailableRoomsForDates(LocalDate startDate, LocalDate endDate);
-
 }
