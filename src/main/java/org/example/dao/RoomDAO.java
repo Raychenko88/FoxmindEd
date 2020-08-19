@@ -10,9 +10,6 @@ import java.util.List;
 @Repository
 public interface RoomDAO extends JpaRepository<Room, Integer> {
 
-    List<Room> findAllByStartDateAndEndDateAndStatus(LocalDate startDate, LocalDate endDate, String status);
-
     List<Room> findAllByCategory(String category);
 
-    List<Room> findAllByStatus(String status);
 }

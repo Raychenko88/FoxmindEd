@@ -10,4 +10,5 @@ import java.util.List;
 public interface RoomOptionDAO extends JpaRepository<RoomOption, Integer> {
 
     List<RoomOption> findAllByOrderId(Integer id);
+
 }

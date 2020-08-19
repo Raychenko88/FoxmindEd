@@ -20,8 +20,6 @@ public class RoomServiceImpl implements RoomService {
     @Autowired
     RoomDAO roomDAO;
 
-    @Autowired
-    RoomOptionService roomOptionService;
 
     @Override
     public Room save(Room room) throws Exception {
@@ -45,22 +43,13 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public List<Room> findAllByStartDateAndEndDateAndOpenStatus(LocalDate startDate, LocalDate endDate, String status) {
-        return roomDAO.findAllByStartDateAndEndDateAndStatus(startDate, endDate, RoomStatus.OPEN.getStatus());
-    }
-
-    @Override
     public List<Room> findAllByCategory(String category) {
         return roomDAO.findAllByCategory(category);
     }
 
     @Override
-    public List<Room> findAllByStatus(String status) {
-        return roomDAO.findAllByStatus(status);
-    }
-
-    @Override
     public BigDecimal costServices(Order order) {
+        RoomOptionService roomOptionService = new RoomOptionServiceImpl();
         BigDecimal sum = new BigDecimal(0);
         for (RoomOption opnion : roomOptionService.findAllByOrderId(order.getId())) {
            sum = sum.add(opnion.getPrice());
@@ -81,6 +70,4 @@ public class RoomServiceImpl implements RoomService {
     public void delete(Room room) {
         roomDAO.delete(room);
     }
-
-
 }

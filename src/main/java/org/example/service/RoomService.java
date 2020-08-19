@@ -16,11 +16,7 @@ public interface RoomService {
 
     Room findById(Integer id) throws Exception;
 
-    List<Room> findAllByStartDateAndEndDateAndOpenStatus(LocalDate startDate, LocalDate endDate, String status);
-
     List<Room> findAllByCategory(String category);
-
-    List<Room> findAllByStatus(String status);
 
     BigDecimal costServices(Order order);
 
