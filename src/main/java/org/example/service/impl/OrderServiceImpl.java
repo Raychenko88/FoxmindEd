@@ -15,7 +15,7 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    OrderDAO orderDAO;
+    private OrderDAO orderDAO;
 
 
     @Override
@@ -48,6 +48,7 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> findAllByUserId(Integer id) {
         return orderDAO.findAllByUserId(id);
     }
+
 
     @Override
     public void delete(Order order) {

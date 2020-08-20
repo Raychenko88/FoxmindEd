@@ -6,7 +6,6 @@ import org.example.model.Room;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 public interface RoomService {
 
@@ -21,6 +20,8 @@ public interface RoomService {
     BigDecimal costServices(Order order);
 
     BigDecimal costIncludingAdditionalServices(Order order) throws Exception;
+
+    List<Room> findAllAvailableRoomsForDates(LocalDate startDate, LocalDate endDate);
 
     void delete(Room room);
 }

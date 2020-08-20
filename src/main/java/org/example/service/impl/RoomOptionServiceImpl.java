@@ -12,17 +12,17 @@ import java.util.List;
 public class RoomOptionServiceImpl implements RoomOptionService {
 
     @Autowired
-    RoomOptionDAO roomOptionDAO;
+    private RoomOptionDAO roomOptionDAO;
 
 
     @Override
     public RoomOption save(RoomOption roomOption) throws Exception {
         List<RoomOption> list = findAllByOrderId(roomOption.getOrderId());
-        if (roomOption.getId() != null){
+        if (roomOption.getId() != null) {
             throw new Exception("room option with this id already exists");
-        }else if (!list.isEmpty()){
+        } else if (!list.isEmpty()) {
             for (RoomOption option : list) {
-                if (option.getTitle().equals(roomOption.getTitle())){
+                if (option.getTitle().equals(roomOption.getTitle())) {
                     throw new Exception("room option option with this id already add");
                 }
             }
@@ -40,7 +40,7 @@ public class RoomOptionServiceImpl implements RoomOptionService {
 
     @Override
     public RoomOption findById(Integer id) throws Exception {
-            return roomOptionDAO.findById(id).orElseThrow(() -> new Exception("room option not found"));
+        return roomOptionDAO.findById(id).orElseThrow(() -> new Exception("room option not found"));
     }
 
     @Override
